@@ -1,0 +1,305 @@
+/* --------------------------------- */
+/* Global Animations */
+/* --------------------------------- */
+body {
+    animation: fadeInPage 1s ease-in-out; /* Page fade-in animation */
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main > * {
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 0.2s; /* Staggered animation for sections */
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------- */
+/* Header Animations */
+/* --------------------------------- */
+header {
+    animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* --------------------------------- */
+/* Navigation Hover Animation */
+/* --------------------------------- */
+nav a {
+    text-decoration: none;
+    color: #272727;
+    font-size: 1em;
+    font-weight: bold;
+    position: relative; /* Required for pseudo-element positioning */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Below the text */
+    width: 0;
+    height: 2px;
+    background: #89c4f4; /* Underline color matching the theme */
+    transition: width 0.3s ease;
+    background: linear-gradient(45deg, #89c4f4, #4682b4); /* Blue gradient underline */
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #0935a2; /* Change text color on hover */
+}
+
+nav a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* --------------------------------- */
+/* Logo Special Hover Animation */
+/* --------------------------------- */
+.logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+    color: #272727;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+    color: #062e4f; /* Change text color */
+    transform: scale(1.2); /* Slightly enlarge */
+    animation: bounceEffect 0.8s ease infinite; /* Infinite bounce animation */
+}
+
+/* Sparkle effect on hover */
+.logo::before,
+.logo::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #89c4f4, #6ba5d9, #a1d8f4);
+    border-radius: 50%;
+    opacity: 100;
+    animation: sparkleEffect 0.8s ease infinite;
+}
+
+.logo::before {
+    top: -10px;
+    left: -15px;
+}
+
+.logo::after {
+    bottom: -10px;
+    right: -15px;
+}
+
+/* Bouncing Animation */
+@keyframes bounceEffect {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px); /* Bounce up */
+    }
+}
+
+/* Sparkle Animation */
+@keyframes sparkleEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+
+/* --------------------------------- */
+/* Sidebar Animations */
+/* --------------------------------- */
+aside {
+    animation: fadeInSidebar 1.2s ease-in-out;
+}
+
+@keyframes fadeInSidebar {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.book-cover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+
+.book-cover:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------- */
+/* Main Content Animations */
+/* --------------------------------- */
+.book-header h1,
+.book-header .author {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.book-header h1 {
+    transition: color 0.3s ease;
+}
+
+.book-header h1:hover {
+    color: #89c4f4; /* Change color on hover */
+}
+
+.book-header .author {
+    transition: transform 0.3s ease;
+}
+
+.book-header .author:hover {
+    transform: translateY(-3px); /* Lift slightly on hover */
+}
+
+.award-label {
+    background: linear-gradient(45deg, gold, orange, red);
+    background-size: 300% 300%; /* Create a larger gradient area for the animation */
+    color: #333;
+    animation: gradientBlink 2s infinite; /* Blinking animation */
+    transition: transform 0.2s ease; /* Hover effect */
+}
+
+@keyframes gradientBlink {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hover Effect */
+.award-label:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+/* --------------------------------- */
+/* Volumes Section Animations */
+/* --------------------------------- */
+.grid-item {
+    animation: zoomIn 0.6s ease;
+    animation-delay: 0.1s;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.grid-item:hover {
+    transform: scale(1.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------- */
+/* Community Reviews Animations */
+/* --------------------------------- */
+.review-container {
+    animation: fadeInLeft 1s ease;
+    animation-delay: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --------------------------------- */
+/* Footer Animations */
+/* --------------------------------- */
+footer {
+    animation: fadeInFooter 1s ease-in-out;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeInFooter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------- */
+/* Smooth Scrolling */
+/* --------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
